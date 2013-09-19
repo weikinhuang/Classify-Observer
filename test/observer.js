@@ -1,11 +1,9 @@
 /* global Observer */
-/* global create */
-/* global isArray */
 QUnit.module("observer");
 
 QUnit.test("basic observer creation", function() {
 	QUnit.expect(5);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -38,7 +36,7 @@ QUnit.test("basic observer creation", function() {
 
 QUnit.test("observer getter with 'get' functionality", function() {
 	QUnit.expect(5);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -86,7 +84,7 @@ QUnit.test("observer getter with 'get' functionality", function() {
 
 QUnit.test("observer setter with 'set' functionality", function() {
 	QUnit.expect(8);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -142,7 +140,7 @@ QUnit.test("observer setter with 'set' functionality", function() {
 
 QUnit.test("observer readonly with 'writable' functionality", function() {
 	QUnit.expect(3);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -192,7 +190,7 @@ QUnit.test("observer readonly with 'writable' functionality", function() {
 
 QUnit.test("observer called in context with class", function() {
 	QUnit.expect(4);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -232,7 +230,7 @@ QUnit.test("observer called in context with class", function() {
 
 QUnit.test("observer with bound setter event listeners", function() {
 	QUnit.expect(10);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -284,7 +282,7 @@ QUnit.test("observer with bound setter event listeners", function() {
 
 	// get the list of event listeners
 	var listeners = observer.listeners();
-	QUnit.ok(isArray(listeners), "observers listeners method returned an array of bound listeners.");
+	QUnit.equal(Object.prototype.toString.call(listeners), "[object Array]", "observers listeners method returned an array of bound listeners.");
 	QUnit.equal(listeners.length, 3, "observers listeners method returned an array or proper number of events.");
 	QUnit.equal(listeners[0], first_listener, "observers listeners method returned an array of bound listeners unmodified.");
 
@@ -296,7 +294,7 @@ QUnit.test("observer with bound setter event listeners", function() {
 
 QUnit.test("observer with event listeners bound with 'once'", function() {
 	QUnit.expect(8);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -329,7 +327,7 @@ QUnit.test("observer with event listeners bound with 'once'", function() {
 
 	// get the list of event listeners
 	var listeners = observer.listeners();
-	QUnit.ok(isArray(listeners), "observers listeners method returned an array of bound listeners.");
+	QUnit.equal(Object.prototype.toString.call(listeners), "[object Array]", "observers listeners method returned an array of bound listeners.");
 	QUnit.equal(listeners.length, 0, "observers listeners method returned an array or proper number of events.");
 
 	QUnit.raises(function(){
@@ -339,7 +337,7 @@ QUnit.test("observer with event listeners bound with 'once'", function() {
 
 QUnit.test("directly calling emit function from observer", function() {
 	QUnit.expect(4);
-	var test = create({});
+	var test = Classify({});
 	var testinstance = new test();
 
 	var val = 10;
@@ -357,7 +355,7 @@ QUnit.test("directly calling emit function from observer", function() {
 
 QUnit.test("removing bound event listeners from observer", function() {
 	QUnit.expect(11);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},
@@ -401,7 +399,7 @@ QUnit.test("removing bound event listeners from observer", function() {
 
 	// get the list of event listeners
 	var listeners = observer.listeners();
-	QUnit.ok(isArray(listeners), "observers listeners method returned an array of bound listeners.");
+	QUnit.equal(Object.prototype.toString.call(listeners), "[object Array]", "observers listeners method returned an array of bound listeners.");
 	QUnit.equal(listeners.length, 1, "observers listeners method returned an array or proper number of events.");
 	QUnit.equal(listeners[0], second_listener, "observers listeners method returned an array of bound listeners unmodified.");
 
@@ -428,14 +426,14 @@ QUnit.test("removing bound event listeners from observer", function() {
 
 	// get the list of event listeners
 	var listeners1 = observer.listeners();
-	QUnit.ok(isArray(listeners1), "observers listeners method returned an array of bound listeners.");
+	QUnit.equal(Object.prototype.toString.call(listeners1), "[object Array]", "observers listeners method returned an array of bound listeners.");
 	QUnit.equal(listeners1.length, 0, "observers listeners method returned an array or proper number of events after removal of all listeners.");
 });
 
 QUnit.test("observer with bound setter event listeners and the delay flag set to true", function() {
 	QUnit.expect(3);
 	QUnit.stop();
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		},

@@ -2,7 +2,7 @@
  * @module observer
  */
 // Observer class that handles an abstraction layer to class properties (getter and setter methods)
-var Observer = create({
+var Observer = Classify({
 	/**
 	 * The context that this object is created within
 	 * @for Classify.Observer
@@ -306,6 +306,3 @@ var Observer = create({
  * @return {Class}
  */
 Observer.prototype.on = Observer.prototype.addListener;
-
-// export methods to the main object
-exportNames.Observer = Observer;

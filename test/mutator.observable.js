@@ -4,7 +4,7 @@ QUnit.module("mutator.observable");
 
 QUnit.test("instantiating observer as part of object initialization", function() {
 	QUnit.expect(7);
-	var test = create({
+	var test = Classify({
 		__observable_x : 10,
 		__observable_y : {
 			value : 100,
@@ -49,7 +49,7 @@ QUnit.test("instantiating observer as part of object initialization", function()
 
 QUnit.test("instantiating observer as part of object initialization with applicate", function() {
 	QUnit.expect(7);
-	var test = create({
+	var test = Classify({
 		__observable_x : 10,
 		__observable_y : {
 			value : 100,
@@ -94,7 +94,7 @@ QUnit.test("instantiating observer as part of object initialization with applica
 
 QUnit.test("instantiating observer as part of object initialization when defined in container", function() {
 	QUnit.expect(7);
-	var test = create({
+	var test = Classify({
 		__observable_ : {
 			x : 10,
 			y : {
@@ -141,7 +141,7 @@ QUnit.test("instantiating observer as part of object initialization when defined
 
 QUnit.test("adding observable properties after class definition", function() {
 	QUnit.expect(2);
-	var test = create({
+	var test = Classify({
 		a : function() {
 			return 1;
 		}
@@ -154,13 +154,13 @@ QUnit.test("adding observable properties after class definition", function() {
 	// test that observers are created
 	QUnit.ok(testinstance.x instanceof Observer, "Instantiated class has instance of observer with addObservableProperty.");
 
-	var test2 = create({
+	var test2 = Classify({
 		a : function() {
 			return 1;
 		}
 	});
 
-	var test3 = create(test2, {
+	var test3 = Classify(test2, {
 		b : function() {
 			return 2;
 		}
@@ -177,7 +177,7 @@ QUnit.test("adding observable properties after class definition", function() {
 
 QUnit.test("removing observable properties after class definition", function() {
 	QUnit.expect(2);
-	var test = create({
+	var test = Classify({
 		__observable_x : 10,
 		a : function() {
 			return 1;
@@ -191,14 +191,14 @@ QUnit.test("removing observable properties after class definition", function() {
 	// test that observers are not created
 	QUnit.equal(testinstance.x, undefined, "Instantiated class does not have instance of observer after removeObservableProperty.");
 
-	var test2 = create({
+	var test2 = Classify({
 		__observable_x : 10,
 		a : function() {
 			return 1;
 		}
 	});
 
-	var test3 = create(test2, {
+	var test3 = Classify(test2, {
 		b : function() {
 			return 2;
 		}

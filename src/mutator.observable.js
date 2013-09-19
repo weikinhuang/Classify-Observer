@@ -2,7 +2,7 @@
  * @module mutator.observable
  */
 // mutator for adding observable properties to a class
-addMutator("observable", {
+Classify.addMutator("observable", {
 	// the special identifier is "__observable_"
 	onCreate : function(klass, parent) {
 		var mutator = this;
