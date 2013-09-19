@@ -11,7 +11,7 @@
 		// loader, use lowercase classify, because AMD modules are usually
 		// loaded with filenames and Classify would usually be loaded with
 		// lowercase classify.js
-		define(["classify"], function(Classify) {
+		define("classify-observer", ["classify"], function(Classify) {
 			callback(root, Classify);
 			return Classify;
 		});
