@@ -92,8 +92,8 @@ module.exports = function(grunt) {
 			},
 			options : {
 				banner : "/*! ClassifyJs Observer v<%= pkg.version %> | (c) 2011-<%= grunt.template.today(\"yyyy\") %>, Wei Kin Huang | <%= pkg.homepage %> | MIT license | <%= grunt.template.today(\"yyyy-mm-dd\") %> */;",
-				sourceMap : "dist/classify.min.map",
-				sourceMappingURL : "classify.min.map",
+				sourceMap : "dist/classify-observer.min.map",
+				sourceMappingURL : "classify-observer.min.map",
 				sourceMapPrefix : 1,
 				beautify : {
 					ascii_only : true
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
 
 	gruntConfig["qunit-node"] = {
 		all : {
-			code : [ "vendor/classify.min.js", "src/core.js", "src/observer.js", "src/mutator.observable.js", "src/export.js" ],
+			code : [ "node_modules/classifyjs/dist/classify.js", "src/core.js", "src/observer.js", "src/mutator.observable.js", "src/export.js" ],
 			tests : [ "test/observer.js", "test/mutator.observable.js" ],
 			setUp : function() {
 				this.root = this;

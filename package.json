@@ -32,6 +32,7 @@
     ],
     "main": "dist/classify-observer",
     "devDependencies": {
+    	"classifyjs": ">=0.11.0",
         "grunt": ">=0.4.1",
         "grunt-cli": ">=0.1.7",
         "grunt-compare-size": ">=0.4.0-rc.3",
